@@ -3,10 +3,10 @@ name: Build and Run OpenAiCodeReview By Main Remote Jar
 on:
   push:
     branches:
-      - master-close
+      - master
   pull_request:
     branches:
-      - master-close
+      - master
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
         run: mkdir -p ./libs
 
       - name: Download openai-code-review-sdk JAR
-        run: wget -O ./libs/openai-code-review-sdk-1.0.jar https://github.com/leikegeek/openai-code-review-log/releases/download/v1.0/openai-code-review-sdk-1.0.jar
+        run: wget -O ./libs/openai-code-review-sdk-1.0.jar https://github.com/leikegeek/openai-code-review/releases/download/1.0/openai-code-review-sdk-1.0.jar
 
       - name: Get repository name
         id: repo-name

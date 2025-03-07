@@ -3,10 +3,10 @@ name: Build and Run OpenAiCodeReview By Main Maven Jar
 on:
   push:
     branches:
-      - master
+      - master-close
   pull_request:
     branches:
-      - master
+      - master-close
 
 jobs:
   build:
@@ -56,7 +56,7 @@ jobs:
       - name: Run Code Review
         run: java -jar ./libs/openai-code-review-sdk-1.0.jar
         env:
-          # Github 配置；GITHUB_REVIEW_LOG_URI「https://github.com/xfg-studio-project/openai-code-review-log」、GITHUB_TOKEN「https://github.com/settings/tokens」
+          # Github 配置；GITHUB_REVIEW_LOG_URI「https://github.com/leikegeek/code-review-log」、GITHUB_TOKEN「https://github.com/settings/tokens」
           GITHUB_REVIEW_LOG_URI: ${{ secrets.CODE_REVIEW_LOG_URI }}
           GITHUB_TOKEN: ${{ secrets.CODE_TOKEN }}
           COMMIT_PROJECT: ${{ env.REPO_NAME }}
